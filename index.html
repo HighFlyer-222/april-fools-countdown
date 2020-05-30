@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<style>* {font-family: sans-serif;}</style>
+<h1 align="center" >April Fools 2021 Countdown</h1>
+<h2 align="center" id="countdown">Getting countdown...</h2>
+<script>
+var cd = new Date("Apr 1, 2021 00:00:00").getTime();
+var x = setInterval(function() {
+  var current = new Date().getTime();
+  var time = cd - current;
+  var d = Math.floor(time / (1000 * 60 * 60 * 24));
+  var h = Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var m = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+  var s = Math.floor((time % (1000 * 60)) / 1000);
+  document.getElementById("countdown").innerHTML = d + " days " + h + " hours "
+  + m + " minutes " + s + " seconds ";
+  
+if (time < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "Thanks for witing for the countdown! For an 2022 countdown, wait until I update it.";
+  }
+}, 1000);
+</script>
